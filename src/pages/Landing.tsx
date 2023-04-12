@@ -1,4 +1,3 @@
-
 //templates
 import MyFormTemplate from "../components/templates/MyFormTemplate";
 

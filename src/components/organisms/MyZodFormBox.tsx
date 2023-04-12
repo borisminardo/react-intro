@@ -1,17 +1,17 @@
 import { Container } from "react-bootstrap";
 //molecules
-import MyForm from "../molecules/MyForm";
+import MyZodForm from "../molecules/MyZodForm";
 
 
-function MyFormBox() {
+function MyZodFormBox() {
 	return (
         <>
         <Container >
-           <MyForm></MyForm>
+           <MyZodForm></MyZodForm>
         </Container>
         </>
 	);
 }
 
 
-export default MyFormBox;
+export default MyZodFormBox;

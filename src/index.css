@@ -1,19 +1,20 @@
 
-
-.content 
+.content
 { 
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    align-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: stretch
 }
+
 
 .container-width{
   max-width: 350px;
 }
+
 
 .row-align-center{
     justify-content: center;
