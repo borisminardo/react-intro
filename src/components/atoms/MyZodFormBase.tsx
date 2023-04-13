@@ -7,35 +7,44 @@ import NomeInput from "./NomeInput";
 import CognomeInput from "./CognomeInput";
 import TelefonoInput from "./TelefonoInput";
 import EmailInput from "./EmailInput";
+import { useState } from 'react';
 
 
-const formSchema = z
+
+/* const formSchema = z
   .object({
     nome: z.string().regex((/^[A-Z]*$/), 'Solo lettere maiuscole'),
     cognome: z.string().regex((/^[A-Z]*$/), 'Solo lettere maiuscole'),
     telefono: z.string().regex((/^\d+$/), 'Solo numeri').transform(Number),
     email: z.string().email({ message: "Invalid email address" }).toLowerCase()
-  })
+  }) */
 
 
-type FormSchemaType = z.infer<typeof formSchema>;
-
+/* type FormSchemaType = z.infer<typeof formSchema>;
+ */
 function MyZodFormBase() {
-  const {
+  /* const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<FormSchemaType>({
     resolver: zodResolver(formSchema),
-  });
+  }); */
 
-  const onSubmit: SubmitHandler<FormSchemaType> = (data) => {
+const [form, setForm] = useState({
+  nome: '',
+  cognome: '',
+  telefono: '',
+  email: ''
+});
+
+/*   const onSubmit: SubmitHandler<FormSchemaType> = (data) => {
     console.log(data);
-  }
-  return (
+  } */
+  return (<>
             <Form
               className="form-width"
-              onSubmit={handleSubmit(onSubmit)}
+             /*  onSubmit={handleSubmit(onSubmit)} */
             >
           
                 <NomeInput  type='text'
@@ -43,9 +52,13 @@ function MyZodFormBase() {
                             id='nome'
                             className="mb-3"
                             placeholder='Inserisci nome'
-                            showErrorMessage={errors.nome? true : false}
-                            error={errors.nome?.message}
-                            /* {...register('nome')} */
+                            showErrorMessage=''
+                            error=''
+                            value={form.nome}
+                            onChange={(event: { target: { value: any; }; }) => {
+                             const val = event.target.value
+                             setForm({...form, nome: val})
+                            }}
                             >
                 </NomeInput>
          
@@ -55,9 +68,13 @@ function MyZodFormBase() {
                             id='cognome'
                             className="mb-3"
                             placeholder='Inserisci cognome'
-                            showErrorMessage={errors.cognome? true : false}
-                            error={errors.cognome?.message}
-                            /* {...register('cognome')} */
+                            showErrorMessage=''
+                            error=''
+                            value={form.cognome}
+                            onChange={(event: { target: { value: any; }; }) => {
+                              const val = event.target.value
+                              setForm({...form, cognome: val})
+                             }}
                             >
                 </CognomeInput>
        
@@ -66,9 +83,13 @@ function MyZodFormBase() {
                             id='telefono'
                             className="mb-3"
                             placeholder='3335577867'
-                            showErrorMessage={errors.telefono? true : false}
-                            error={errors.telefono?.message}
-                            /* {...register('telefono')} */
+                            showErrorMessage=''
+                            error=''
+                            value={form.telefono}
+                            onChange={(event: { target: { value: any; }; }) => {
+                              const val = event.target.value
+                              setForm({...form, telefono: val})
+                             }}
                             >
                 </TelefonoInput>
           
@@ -77,9 +98,13 @@ function MyZodFormBase() {
                             id='email'
                             className="mb-3"
                             placeholder='nome@mail.com'
-                            showErrorMessage={errors.email? true : false}
-                            error={errors.email?.message}
-                            /* {...register('email')} */
+                            showErrorMessage=''
+                            error=''
+                            value={form.email}
+                            onChange={(event: { target: { value: any; }; }) => {
+                              const val = event.target.value
+                              setForm({...form, email: val})
+                             }}
                             >
                 </EmailInput>
        
@@ -87,11 +112,14 @@ function MyZodFormBase() {
               <Button
               variant="primary"
                 type="submit"
-                disabled={isSubmitting}
+               /*  disabled={isSubmitting} */
               >
                Submit
               </Button>
             </Form>
+
+ <pre><code>{JSON.stringify(form, undefined, 2)}</code></pre ></>
+
          
   );
 }

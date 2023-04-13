@@ -15,6 +15,7 @@ function NomeInput(props: any) {
         placeholder={props.placeholder}
         showErrorMessage={props.showErrorMessage}
         error={props.error}
+        onChange={props.onChange}
       /> 
       </>
     )

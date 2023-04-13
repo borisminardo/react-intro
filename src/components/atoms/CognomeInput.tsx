@@ -12,6 +12,7 @@ function CognomeInput(props: any) {
         placeholder={props.placeholder}
         showErrorMessage={props.showErrorMessage}
         error={props.error}
+        onChange={props.onChange}
       /> 
       </>
     )

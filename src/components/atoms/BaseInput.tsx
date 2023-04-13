@@ -8,17 +8,17 @@ function BaseInput(props: any) {
 
     return  (
         <>
-    <label className="label-width" id={props.id}>  {props.labelName} </label>
+    <label className="label-width" htmlFor={props.id}>  {props.labelName} </label>
         <input
             type={props.type}
             id={props.id}
             className=""
             placeholder={props.placeholder}  
             value={props.value}
-            onChange={(e) => setValue(e.target.value)}
+            onChange={props.onChange}
       />
        <p style={{color:'red'}}>{props.error}</p>
-
+        {/* <pre><code>{JSON.stringify(value, undefined, 2)}</code></pre> */}
    
    
  {/*   DA USARE DOPO */}
