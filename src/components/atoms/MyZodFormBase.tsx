@@ -62,7 +62,7 @@ const handleValidForm = () => {
                             error={formError.nome}
                             errorMessage={formError.nome? 'Errore nel nome' : ''}
                             value={form.nome}
-                            onChange={(event: { target: { value: any }; }) => {
+                            onChange={(event) => {
                              const val = event.target.value
                              setForm({...form, nome: val})
                             }}
@@ -77,7 +77,7 @@ const handleValidForm = () => {
                             error={formError.cognome}
                             errorMessage={formError.cognome? 'Errore nel cognome' : ''}
                             value={form.cognome}
-                            onChange={(event: { target: { value: any; }; }) => {
+                            onChange={(event) => {
                               const val = event.target.value
                               setForm({...form, cognome: val})
                              }}
@@ -92,7 +92,7 @@ const handleValidForm = () => {
                             error={formError.telefono}
                             errorMessage={formError.telefono? 'Errore nel telefono' : ''}
                             value={form.telefono}
-                            onChange={(event: { target: { value: any; }; }) => {
+                            onChange={(event) => {
                               const val = event.target.value
                               setForm({...form, telefono: val})
                              }}
@@ -107,7 +107,7 @@ const handleValidForm = () => {
                             error={formError.email}
                             errorMessage={formError.telefono? 'Errore nella email' : ''}
                             value={form.email}
-                            onChange={(event: { target: { value: any; }; }) => {
+                            onChange={(event) => {
                               const val = event.target.value
                               setForm({...form, email: val})
                              }}
@@ -116,7 +116,7 @@ const handleValidForm = () => {
              
               <MyFormButton
                  colore = 'primary'
-                 type ='button'
+                 type ='submit'
                  titolo = 'Valida'
                  onClick={handleValidForm}
               >
