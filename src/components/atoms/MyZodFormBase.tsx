@@ -14,6 +14,16 @@ import MyFormButton from "./MyFormButton";
 
 function MyZodFormBase() {
 
+/* const mySchema = z.string();
+
+const User = z.object({
+  nome: z.string(),
+  cognome:  z.string(),
+  telefono:  z.string(),
+  email:  z.string().email()
+});
+
+type User = z.infer<typeof User>; */
 
 const [form, setForm] = useState({
   nome: '',
@@ -44,30 +54,26 @@ const handleValidForm = () => {
             <Form
               className="form-width"
                           >
-          
                 <NomeInput  type='text'
                             labelName="Nome"
                             id='nome'
                             className="mb-3"
                             placeholder='Inserisci nome'
-                            showErrorMessage=''
                             error={formError.nome}
                             errorMessage={formError.nome? 'Errore nel nome' : ''}
                             value={form.nome}
-                            onChange={(event: { target: { value: any; }; }) => {
+                            onChange={(event: { target: { value: any }; }) => {
                              const val = event.target.value
                              setForm({...form, nome: val})
                             }}
                             >
                 </NomeInput>
-         
        
               <CognomeInput  type='text'
                             labelName="Cognome"
                             id='cognome'
                             className="mb-3"
                             placeholder='Inserisci cognome'
-                            showErrorMessage=''
                             error={formError.cognome}
                             errorMessage={formError.cognome? 'Errore nel cognome' : ''}
                             value={form.cognome}
@@ -83,7 +89,6 @@ const handleValidForm = () => {
                             id='telefono'
                             className="mb-3"
                             placeholder='3335577867'
-                            showErrorMessage=''
                             error={formError.telefono}
                             errorMessage={formError.telefono? 'Errore nel telefono' : ''}
                             value={form.telefono}
@@ -99,7 +104,6 @@ const handleValidForm = () => {
                             id='email'
                             className="mb-3"
                             placeholder='nome@mail.com'
-                            showErrorMessage=''
                             error={formError.email}
                             errorMessage={formError.telefono? 'Errore nella email' : ''}
                             value={form.email}
@@ -108,8 +112,7 @@ const handleValidForm = () => {
                               setForm({...form, email: val})
                              }}
                             >
-                </EmailInput>
-       
+                </EmailInput>      
              
               <MyFormButton
                  colore = 'primary'
@@ -118,12 +121,10 @@ const handleValidForm = () => {
                  onClick={handleValidForm}
               >
               </MyFormButton>
-            
+         
             </Form>
 
- <pre><code>{JSON.stringify(form, undefined, 2)}</code></pre ></>
-
-         
+ <pre><code>{JSON.stringify(form, undefined, 2)}</code></pre ></>      
   );
 }
 

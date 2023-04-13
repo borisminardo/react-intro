@@ -1,5 +1,18 @@
+interface MyProps {
+    type: string
+    id: string
+    placeholder: string
+    value: string
+    labelName: string
+    error: boolean
+    errorMessage: string
+    onChange: {}
+}
 
-function BaseInput(props: any) {
+type InputBaseProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & MyProps
+
+
+function BaseInput(props: InputBaseProps) {
      let styleText = {}
     if(props.error){
         styleText =  {color: 'red'}
