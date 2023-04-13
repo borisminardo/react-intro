@@ -8,28 +8,12 @@ import CognomeInput from "./CognomeInput";
 import TelefonoInput from "./TelefonoInput";
 import EmailInput from "./EmailInput";
 import { useState } from 'react';
+import MyFormButton from "./MyFormButton";
 
 
 
-/* const formSchema = z
-  .object({
-    nome: z.string().regex((/^[A-Z]*$/), 'Solo lettere maiuscole'),
-    cognome: z.string().regex((/^[A-Z]*$/), 'Solo lettere maiuscole'),
-    telefono: z.string().regex((/^\d+$/), 'Solo numeri').transform(Number),
-    email: z.string().email({ message: "Invalid email address" }).toLowerCase()
-  }) */
-
-
-/* type FormSchemaType = z.infer<typeof formSchema>;
- */
 function MyZodFormBase() {
-  /* const {
-    register,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm<FormSchemaType>({
-    resolver: zodResolver(formSchema),
-  }); */
+
 
 const [form, setForm] = useState({
   nome: '',
@@ -38,14 +22,28 @@ const [form, setForm] = useState({
   email: ''
 });
 
-/*   const onSubmit: SubmitHandler<FormSchemaType> = (data) => {
-    console.log(data);
-  } */
+const [formError, setFormError] = useState({
+  nome: false,
+  cognome: false,
+  telefono: false,
+  email: false
+});
+
+const handleValidForm = () => {
+  setFormError({
+    ...formError, 
+    nome:  form.nome === '',
+    cognome: form.cognome === '',
+    telefono:  form.telefono === '',
+    email: form.email === ''
+});
+  
+}
+
   return (<>
             <Form
               className="form-width"
-             /*  onSubmit={handleSubmit(onSubmit)} */
-            >
+                          >
           
                 <NomeInput  type='text'
                             labelName="Nome"
@@ -53,7 +51,8 @@ const [form, setForm] = useState({
                             className="mb-3"
                             placeholder='Inserisci nome'
                             showErrorMessage=''
-                            error=''
+                            error={formError.nome}
+                            errorMessage={formError.nome? 'Errore nel nome' : ''}
                             value={form.nome}
                             onChange={(event: { target: { value: any; }; }) => {
                              const val = event.target.value
@@ -69,7 +68,8 @@ const [form, setForm] = useState({
                             className="mb-3"
                             placeholder='Inserisci cognome'
                             showErrorMessage=''
-                            error=''
+                            error={formError.cognome}
+                            errorMessage={formError.cognome? 'Errore nel cognome' : ''}
                             value={form.cognome}
                             onChange={(event: { target: { value: any; }; }) => {
                               const val = event.target.value
@@ -84,7 +84,8 @@ const [form, setForm] = useState({
                             className="mb-3"
                             placeholder='3335577867'
                             showErrorMessage=''
-                            error=''
+                            error={formError.telefono}
+                            errorMessage={formError.telefono? 'Errore nel telefono' : ''}
                             value={form.telefono}
                             onChange={(event: { target: { value: any; }; }) => {
                               const val = event.target.value
@@ -99,7 +100,8 @@ const [form, setForm] = useState({
                             className="mb-3"
                             placeholder='nome@mail.com'
                             showErrorMessage=''
-                            error=''
+                            error={formError.email}
+                            errorMessage={formError.telefono? 'Errore nella email' : ''}
                             value={form.email}
                             onChange={(event: { target: { value: any; }; }) => {
                               const val = event.target.value
@@ -108,14 +110,15 @@ const [form, setForm] = useState({
                             >
                 </EmailInput>
        
-      
-              <Button
-              variant="primary"
-                type="submit"
-               /*  disabled={isSubmitting} */
+             
+              <MyFormButton
+                 colore = 'primary'
+                 type ='button'
+                 titolo = 'Valida'
+                 onClick={handleValidForm}
               >
-               Submit
-              </Button>
+              </MyFormButton>
+            
             </Form>
 
  <pre><code>{JSON.stringify(form, undefined, 2)}</code></pre ></>
