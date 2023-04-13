@@ -1,12 +1,7 @@
 interface MyProps {
-    type: string
-    id: string
-    placeholder: string
-    value: string
     labelName: string
     error: boolean
     errorMessage: string
-    onChange: {}
 }
 
 type InputBaseProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & MyProps
