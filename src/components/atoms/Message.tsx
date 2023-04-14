@@ -1,11 +1,9 @@
 function Message(props: any) {
+  return (
+    <>
+      <p style={{ color: props.type }}></p>
+    </>
+  );
+}
 
-    return  (
-      <>
-      <p style={{color:props.type}}></p>
-      </>
-    )
-  
-  }
-  
-  export default Message;
+export default Message;

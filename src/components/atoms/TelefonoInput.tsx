@@ -1,12 +1,26 @@
 import { MyInputProps } from "../../Interfaces/MyInputProps";
 import BaseInput from "./BaseInput";
 
-type InputBaseProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & MyInputProps
+type InputBaseProps = React.DetailedHTMLProps<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+> &
+  MyInputProps;
 
-function TelefonoInput({labelname,className, error, errormessage,type, id, value, placeholder, onChange, ...otherProps}: InputBaseProps) {
-
-    return  (
-      <>
+function TelefonoInput({
+  labelname,
+  className,
+  error,
+  errormessage,
+  type,
+  id,
+  value,
+  placeholder,
+  onChange,
+  ...otherProps
+}: InputBaseProps) {
+  return (
+    <>
       <BaseInput
         {...otherProps}
         labelname={labelname}
@@ -18,10 +32,9 @@ function TelefonoInput({labelname,className, error, errormessage,type, id, value
         error={error}
         errormessage={errormessage}
         onChange={onChange}
-      /> 
-      </>
-    )
-  
-  }
-  
-  export default TelefonoInput;
+      />
+    </>
+  );
+}
+
+export default TelefonoInput;
