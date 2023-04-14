@@ -1,11 +1,5 @@
-import { MyInputProps } from "../../Interfaces/MyInputProps";
+import { InputBaseProps, MyInputProps } from "../../Interfaces/MyInputProps";
 import BaseInput from "./BaseInput";
-
-type InputBaseProps = React.DetailedHTMLProps<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  HTMLInputElement
-> &
-  MyInputProps;
 
 function NomeInput({
   labelname,
@@ -18,7 +12,7 @@ function NomeInput({
   placeholder,
   onChange,
   ...otherProps
-}: InputBaseProps) {
+}: InputBaseProps & MyInputProps) {
   return (
     <>
       <BaseInput

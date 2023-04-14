@@ -1,11 +1,5 @@
-import { MyInputProps } from "../../Interfaces/MyInputProps";
+import { InputBaseProps, MyInputProps } from "../../Interfaces/MyInputProps";
 import BaseInput from "./BaseInput";
-
-type InputBaseProps = React.DetailedHTMLProps<
-  React.InputHTMLAttributes<HTMLInputElement>,
-  HTMLInputElement
-> &
-  MyInputProps;
 
 function TelefonoInput({
   labelname,
@@ -18,7 +12,7 @@ function TelefonoInput({
   placeholder,
   onChange,
   ...otherProps
-}: InputBaseProps) {
+}: InputBaseProps & MyInputProps) {
   return (
     <>
       <BaseInput
