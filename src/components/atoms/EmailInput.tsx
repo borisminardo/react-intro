@@ -12,6 +12,7 @@ function EmailInput({
   onChange,
   ...otherProps
 }: InputBaseProps & MyInputProps) {
+  let emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   return (
     <>
       <BaseInput

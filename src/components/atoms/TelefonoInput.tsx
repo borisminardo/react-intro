@@ -1,5 +1,6 @@
 import { InputBaseProps, MyInputProps } from "../../Interfaces/MyInputProps";
 import BaseInput from "./BaseInput";
+import OnlyNumberInput from "../../shared/OnlyNumberInput";
 
 function TelefonoInput({
   labelname,
@@ -20,7 +21,7 @@ function TelefonoInput({
         type={type}
         id={id}
         className={className}
-        value={value}
+        value={OnlyNumberInput.valida(value)}
         placeholder={placeholder}
         errormessage={errormessage}
         onChange={onChange}

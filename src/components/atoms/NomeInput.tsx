@@ -1,6 +1,6 @@
 import { InputBaseProps, MyInputProps } from "../../Interfaces/MyInputProps";
 import BaseInput from "./BaseInput";
-import TextInputAZ from "./TextInputAZ";
+import TextInputAZ from "../../shared/TextInputAZ";
 
 function NomeInput({
   labelname,
@@ -21,7 +21,7 @@ function NomeInput({
         type={type}
         id={id}
         className={className}
-        value={TextInputAZ.validaTesto(value, { pattern: /[A-Z]$/ })}
+        value={TextInputAZ.valida(value)}
         placeholder={placeholder}
         errormessage={""}
         onChange={onChange}

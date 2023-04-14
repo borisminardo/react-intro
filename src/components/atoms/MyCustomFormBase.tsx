@@ -10,7 +10,7 @@ import EmailInput from "./EmailInput";
 import { useState } from "react";
 import MyFormButton from "./MyFormButton";
 import MyDebuggerObj from "../../shared/MyDebuggerObj";
-import TextInputAZ from "./TextInputAZ";
+import TextInputAZ from "../../shared/OnlyNumberInput";
 
 function MyCustomFormBase() {
   const [form, setForm] = useState({

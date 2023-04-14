@@ -1,11 +1,10 @@
 const TextInputAZ = {
-  validaTesto: function (
-    value: string | number | readonly string[] | undefined,
-    regex: { pattern: RegExp }
+  valida: function (
+    value: string | number | readonly string[] | undefined
   ): string | number | readonly string[] | undefined {
     if (typeof value === "string") {
       if (value === "") return value;
-      let controllo = value.match(regex.pattern) ? value : value.slice(0, -1);
+      let controllo = value.match(/[A-Z]$/) ? value : value.slice(0, -1);
       return controllo;
     } else {
       return value;
