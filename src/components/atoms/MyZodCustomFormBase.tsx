@@ -9,6 +9,7 @@ import TelefonoInput from "./TelefonoInput";
 import EmailInput from "./EmailInput";
 import { EventHandler, useState } from "react";
 import MyFormButton from "./MyFormButton";
+import MyDebuggerObj from "../../shared/MyDebuggerObj";
 
 function MyCustomFormBase() {
   const [form, setForm] = useState({
@@ -111,11 +112,7 @@ function MyCustomFormBase() {
         ></MyFormButton>
       </Form>
 
-      <div className="mt-3">
-        <pre>
-          <code>{JSON.stringify(form, undefined, 2)}</code>
-        </pre>{" "}
-      </div>
+      <MyDebuggerObj className="mt-3" obj={form}></MyDebuggerObj>
     </>
   );
 }
