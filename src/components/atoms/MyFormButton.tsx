@@ -1,14 +1,11 @@
 import { Button, ButtonProps } from 'react-bootstrap';
-import { BsPrefixRefForwardingComponent } from 'react-bootstrap/esm/helpers';
-
 interface MyProps{
   colore: string
   titolo: string
   onClick: React.MouseEventHandler<HTMLButtonElement> 
 }
 
-
-function MyFormButton(props: BsPrefixRefForwardingComponent<'button', ButtonProps> & MyProps) {
+function MyFormButton(props: React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>,HTMLButtonElement> & MyProps) {
 
   return (
     <Button variant={props.colore}

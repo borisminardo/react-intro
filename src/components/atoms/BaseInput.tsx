@@ -1,31 +1,31 @@
-interface MyProps {
-    labelName: string
-    error: boolean
-    errorMessage: string
-}
+import { MyInputProps } from "../../Interfaces/MyInputProps"
 
-type InputBaseProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & MyProps
+type InputBaseProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & MyInputProps
 
-
-function BaseInput(props: InputBaseProps) {
-     let styleText = {}
-    if(props.error){
+function BaseInput({labelname,className, error, errormessage,type, id, value, placeholder, onChange, ...otherProps}: InputBaseProps) { 
+    
+    console.log({...otherProps})
+    
+    let styleText = {}
+    if(otherProps.errormessage != ''){
         styleText =  {color: 'red'}
     }
-
     return  (
         <>
-    <label className="label-width" htmlFor={props.id}>  {props.labelName} </label>
+    <label className="label-width" htmlFor={id}>  {labelname} </label>
         <input
-            type={props.type}
-            id={props.id}
-            placeholder={props.placeholder}  
-            value={props.value}
-            onChange={props.onChange}
+            {...otherProps}
+            type={type}
+            id={id}
+            placeholder={placeholder}  
+            value={value}
+            onChange={onChange}
       />
-       <p style={styleText}>{props.errorMessage}</p>
+       <p style={styleText}>{errormessage}</p>
     </>)
   
   }
+  
+  
   
   export default BaseInput;

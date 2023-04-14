@@ -1,21 +1,23 @@
+import { MyInputProps } from "../../Interfaces/MyInputProps";
 import BaseInput from "./BaseInput";
 
-function TelefonoInput(props: any) {
+type InputBaseProps = React.DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & MyInputProps
 
-
+function TelefonoInput({labelname,className, error, errormessage,type, id, value, placeholder, onChange, ...otherProps}: InputBaseProps) {
 
     return  (
       <>
       <BaseInput
-       labelName={props.labelName}
-        type={props.type}
-        id={props.id}
-        className={props.className}
-        value={props.value}
-        placeholder={props.placeholder}
-        error={props.error}
-        errorMessage={props.errorMessage}
-        onChange={props.onChange}
+        {...otherProps}
+        labelname={labelname}
+        type={type}
+        id={id}
+        className={className}
+        value={value}
+        placeholder={placeholder}
+        error={error}
+        errormessage={errormessage}
+        onChange={onChange}
       /> 
       </>
     )

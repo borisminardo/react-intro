@@ -7,13 +7,13 @@ import NomeInput from "./NomeInput";
 import CognomeInput from "./CognomeInput";
 import TelefonoInput from "./TelefonoInput";
 import EmailInput from "./EmailInput";
-import { useState } from 'react';
+import { EventHandler, useState } from 'react';
 import MyFormButton from "./MyFormButton";
+import BaseInput from "./BaseInput";
 
 
 
 function MyZodFormBase() {
-
 /* const mySchema = z.string();
 
 const User = z.object({
@@ -55,14 +55,15 @@ const handleValidForm = () => {
               className="form-width"
                           >
                 <NomeInput  type='text'
-                            labelName="Nome"
+                            labelname="Nome"
                             id='nome'
-                            className="mb-3"
+                            className=""
+                            stile='color-red'
+                            pattern='/[A-Z]$/'
                             placeholder='Inserisci nome'
-                            error={formError.nome}
-                            errorMessage={formError.nome? 'Errore nel nome' : ''}
-                            value={form.nome}
-                            onChange={(event) => {
+                            errormessage={formError.nome? 'Errore nel nome' : ''}
+                            value={form.nome }
+                            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                              const val = event.target.value
                              setForm({...form, nome: val})
                             }}
@@ -70,14 +71,15 @@ const handleValidForm = () => {
                 </NomeInput>
        
               <CognomeInput  type='text'
-                            labelName="Cognome"
+                            labelname="Cognome"
                             id='cognome'
-                            className="mb-3"
+                            className=""
+                            stile='color-red'
+                            pattern='/[A-Z]$/'
                             placeholder='Inserisci cognome'
-                            error={formError.cognome}
-                            errorMessage={formError.cognome? 'Errore nel cognome' : ''}
+                            errormessage={formError.cognome? 'Errore nel cognome' : ''}
                             value={form.cognome}
-                            onChange={(event) => {
+                            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                               const val = event.target.value
                               setForm({...form, cognome: val})
                              }}
@@ -85,14 +87,15 @@ const handleValidForm = () => {
                 </CognomeInput>
        
               <TelefonoInput  type='text'
-                            labelName="Telefono"
+                            labelname="Telefono"
                             id='telefono'
-                            className="mb-3"
+                            className=""
+                            stile='color-red'
+                            pattern='/[0-9]$/'
                             placeholder='3335577867'
-                            error={formError.telefono}
-                            errorMessage={formError.telefono? 'Errore nel telefono' : ''}
+                            errormessage={formError.telefono? 'Errore nel telefono' : ''}
                             value={form.telefono}
-                            onChange={(event) => {
+                            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                               const val = event.target.value
                               setForm({...form, telefono: val})
                              }}
@@ -100,14 +103,15 @@ const handleValidForm = () => {
                 </TelefonoInput>
           
               <EmailInput    type='text'
-                            labelName="Email"
+                            labelname="Email"
                             id='email'
-                            className="mb-3"
+                            stile='color-red'
+                            pattern='/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/'
+                            className=""
                             placeholder='nome@mail.com'
-                            error={formError.email}
-                            errorMessage={formError.telefono? 'Errore nella email' : ''}
+                            errormessage={formError.telefono? 'Errore nella email' : ''}
                             value={form.email}
-                            onChange={(event) => {
+                            onChange={(event: React.ChangeEvent<HTMLInputElement> ) => {
                               const val = event.target.value
                               setForm({...form, email: val})
                              }}
