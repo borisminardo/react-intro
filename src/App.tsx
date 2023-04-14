@@ -1,3 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 //pages
 import Landing from './pages/Landing';
 

@@ -7,23 +7,13 @@ import NomeInput from "./NomeInput";
 import CognomeInput from "./CognomeInput";
 import TelefonoInput from "./TelefonoInput";
 import EmailInput from "./EmailInput";
-import { EventHandler, useState } from 'react';
+import { useState } from 'react';
 import MyFormButton from "./MyFormButton";
-import BaseInput from "./BaseInput";
 
 
 
-function MyZodFormBase() {
-/* const mySchema = z.string();
+function MyCustomFormBase() {
 
-const User = z.object({
-  nome: z.string(),
-  cognome:  z.string(),
-  telefono:  z.string(),
-  email:  z.string().email()
-});
-
-type User = z.infer<typeof User>; */
 
 const [form, setForm] = useState({
   nome: '',
@@ -127,9 +117,10 @@ const handleValidForm = () => {
               </MyFormButton>
          
             </Form>
-
- <pre><code>{JSON.stringify(form, undefined, 2)}</code></pre ></>      
+            <div className="mt-3"><pre><code>{JSON.stringify(form, undefined, 2)}</code></pre > </div>
+</>
+      
   );
 }
 
-export default MyZodFormBase;
+export default MyCustomFormBase;

@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import {Form} from 'react-bootstrap';
 import {useForm} from 'react-hook-form';
 import {Button} from 'react-bootstrap';
