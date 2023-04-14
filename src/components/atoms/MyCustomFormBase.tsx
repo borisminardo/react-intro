@@ -10,6 +10,7 @@ import EmailInput from "./EmailInput";
 import { useState } from "react";
 import MyFormButton from "./MyFormButton";
 import MyDebuggerObj from "../../shared/MyDebuggerObj";
+import TextInputAZ from "./TextInputAZ";
 
 function MyCustomFormBase() {
   const [form, setForm] = useState({
@@ -27,7 +28,6 @@ function MyCustomFormBase() {
   });
 
   const handleValidForm = () => {
-    const regNome = "/[A-Z]$/";
     setFormError({
       ...formError,
       nome: form.nome === "",

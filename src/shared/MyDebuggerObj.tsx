@@ -1,6 +1,6 @@
 interface MyProps {
   className?: string;
-  obj: {};
+  obj: {} | string | number | readonly string[] | undefined;
   [otherProps: string]: unknown;
 }
 

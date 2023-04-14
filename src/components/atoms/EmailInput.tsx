@@ -4,7 +4,6 @@ import BaseInput from "./BaseInput";
 function EmailInput({
   labelname,
   className,
-  error,
   errormessage,
   type,
   id,
@@ -23,7 +22,6 @@ function EmailInput({
         className={className}
         value={value}
         placeholder={placeholder}
-        error={error}
         errormessage={errormessage}
         onChange={onChange}
       />

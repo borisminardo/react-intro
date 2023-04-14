@@ -4,7 +4,6 @@ import BaseInput from "./BaseInput";
 function TelefonoInput({
   labelname,
   className,
-  error,
   errormessage,
   type,
   id,
@@ -23,7 +22,6 @@ function TelefonoInput({
         className={className}
         value={value}
         placeholder={placeholder}
-        error={error}
         errormessage={errormessage}
         onChange={onChange}
       />

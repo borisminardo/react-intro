@@ -1,10 +1,10 @@
 import { InputBaseProps, MyInputProps } from "../../Interfaces/MyInputProps";
 import BaseInput from "./BaseInput";
+import TextInputAZ from "./TextInputAZ";
 
 function CognomeInput({
   labelname,
   className,
-  error,
   errormessage,
   type,
   id,
@@ -21,9 +21,8 @@ function CognomeInput({
         type={type}
         id={id}
         className={className}
-        value={value}
+        value={TextInputAZ.validaTesto(value, { pattern: /[A-Z]$/ })}
         placeholder={placeholder}
-        error={error}
         errormessage={errormessage}
         onChange={onChange}
       />

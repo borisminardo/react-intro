@@ -1,4 +1,5 @@
 import { MyInputProps } from "../../Interfaces/MyInputProps";
+import MyDebuggerObj from "../../shared/MyDebuggerObj";
 
 type InputBaseProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -9,7 +10,6 @@ type InputBaseProps = React.DetailedHTMLProps<
 function BaseInput({
   labelname,
   className,
-  error,
   errormessage,
   type,
   id,
@@ -18,12 +18,11 @@ function BaseInput({
   onChange,
   ...otherProps
 }: InputBaseProps) {
-  console.log({ ...otherProps });
-
   let styleText = {};
   if (otherProps.errormessage != "") {
     styleText = { color: "red" };
   }
+
   return (
     <>
       <label className="label-width" htmlFor={id}>
@@ -39,6 +38,8 @@ function BaseInput({
         onChange={onChange}
       />
       <p style={styleText}>{errormessage}</p>
+
+      {/*  <MyDebuggerObj className="mt-3" obj={value}></MyDebuggerObj> */}
     </>
   );
 }
