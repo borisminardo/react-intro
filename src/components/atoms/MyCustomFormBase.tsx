@@ -27,6 +27,7 @@ function MyCustomFormBase() {
   });
 
   const handleValidForm = () => {
+    const regNome = "/[A-Z]$/";
     setFormError({
       ...formError,
       nome: form.nome === "",

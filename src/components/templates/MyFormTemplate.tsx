@@ -12,10 +12,10 @@ function MyFormTemplate() {
       <Container className="content">
         <Row>
           <Col md="auto">
-            <MyCustomFormBox />
+            <MyFormBox />
           </Col>
           <Col md="auto">
-            <MyZodCustomFormBox />
+            <MyCustomFormBox />
           </Col>
         </Row>
       </Container>
