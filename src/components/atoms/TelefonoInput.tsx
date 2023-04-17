@@ -21,7 +21,7 @@ function TelefonoInput({
         type={type}
         id={id}
         className={className}
-        value={OnlyNumberInput.valida(value)}
+        value={OnlyNumberInput(value)}
         placeholder={placeholder}
         errormessage={errormessage}
         onChange={onChange}
