@@ -4,7 +4,7 @@ import TextInputAZ from "../TextInputAZ";
 
 describe("rendering only number input", () => {
   test("check number", () => {
-    render(<TextInputAZ text="test" />);
+    render(<OnlyNumberInput text="test" />);
 
     expect(screen.getByText("test")).toBeTruthy();
   });
