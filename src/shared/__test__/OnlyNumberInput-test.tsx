@@ -1,4 +1,3 @@
-import { screen, render } from "@testing-library/react";
 import OnlyNumberInput from "../OnlyNumberInput";
 
 describe("rendering only number input", () => {
