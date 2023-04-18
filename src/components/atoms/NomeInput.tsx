@@ -21,7 +21,7 @@ function NomeInput({
         type={type}
         id={id}
         className={className}
-        value={TextInputAZ.valida("ok")}
+        value={TextInputAZ(value)}
         placeholder={placeholder}
         errormessage={""}
         onChange={onChange}
